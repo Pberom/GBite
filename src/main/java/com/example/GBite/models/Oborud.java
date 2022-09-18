@@ -1,18 +1,22 @@
 package com.example.GBite.models;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.Collection;
 
 @Entity
-public class psforoborud {
+public class Oborud {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotEmpty(message = "Поле не может быть пустым!")
     @Size(message = "Строка не может быть меньше", min = 2, max = 1000)
     String title;
+
+    @Min(message = "Число не может быть отрицательным", value = 0)
+    @Max(message = "Число не может быть слишком большим!", value = 1000)
+    @NotNull(message = "Поле не может быть пустым!")
+    Integer KolVo;
 
     public Long getId() {
         return id;
@@ -30,8 +34,19 @@ public class psforoborud {
         this.title = title;
     }
 
-    public psforoborud() {
+    public Integer getKolVo() {
+        return KolVo;
+    }
+
+    public void setKolVo(Integer kolVo) {
+        KolVo = kolVo;
+    }
+
+    public Oborud() {
+    }
+
+    public Oborud(String title, Integer kolVo) {
+        this.title = title;
+        KolVo = kolVo;
     }
 }
-
-            

@@ -1,11 +1,9 @@
 package com.example.GBite.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.Collection;
 
 @Entity
 public class post {
@@ -15,6 +13,21 @@ public class post {
     @NotEmpty(message = "Поле не может быть пустым!")
     @Size(message = "Строка не может быть меньше", min = 2, max = 1000)
     String title;
+
+    @OneToMany(mappedBy = "title", fetch = FetchType.EAGER)
+    Collection<Members> members;
+
+    public post(Collection<Members> members) {
+        this.members = members;
+    }
+
+    public Collection<Members> getMembers() {
+        return members;
+    }
+
+    public void setMembers(Collection<Members> members) {
+        this.members = members;
+    }
 
     public post() {
     }
