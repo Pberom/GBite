@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>News Page</title>
@@ -9,18 +9,18 @@
 <header class="p-3 text-bg-dark" th:insert="fragments/header :: defaultheader"></header>
 <body>
 
-<form method="get" action="/psforoborud/search">
+<form method="get" action="/post/search">
     <input type="text" name="title" id="title">
     <input type="submit" value="Найти">
 </form>
 
-<div class="card" style="width: 18rem;" th:each="el : ${psforoborud}">
+<div class="card" style="width: 18rem;" th:each="el : ${post}">
     <div class="card-body">
         <h5 th:text="${el.title}"></h5>
-        <a th:href="'/psforoborud/' + ${el.id}" class="card-link">Подробнее</a>
+        <a th:href="'/post/' + ${el.id}" class="card-link">Подробнее</a>
     </div>
 </div>
 
-<a href="/psforoborud/add" class="btn btn-primary">Добавить</a>
+<a href="/post/add" class="btn btn-primary">Добавить</a>
 </body>
 </html>

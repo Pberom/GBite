@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <!--  Bootstrap css link  -->
@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container" th:each="el : ${psforoborud}">
-  <form th:object="${colors}" th:action="'/psforoborud/edit/' + ${el.id}" method="post" >
+  <form th:object="${psforoborud}" th:action="'/psforoborud/edit/' + ${el.id}" method="post" >
     <p>
       <label for="title">title</label>
       <input type="text" id="title" name="title" class="form-control" placeholder="Enter the title" th:value="${el.title}">
