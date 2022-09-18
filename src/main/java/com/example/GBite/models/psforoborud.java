@@ -14,6 +14,10 @@ public class psforoborud {
     @Size(message = "Строка не может быть меньше", min = 2, max = 1000)
     String title;
 
+    @OneToOne(optional = true, mappedBy = "psforoborud")
+    public Oborud Oborud;
+
+
     public Long getId() {
         return id;
     }

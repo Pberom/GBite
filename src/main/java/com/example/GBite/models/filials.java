@@ -14,6 +14,9 @@ public class filials {
     @Size(message = "Строка не может быть меньше", min = 2, max = 1000)
     String title;
 
+    @OneToOne(optional = true, cascade = CascadeType.ALL)
+    public adress adress;
+
     @OneToMany(mappedBy = "title", fetch = FetchType.EAGER)
     Collection<Members> members;
 

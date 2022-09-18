@@ -54,6 +54,12 @@ public class User {
     private String password;
     private boolean isActive;
 
+    @OneToOne(optional = true, mappedBy = "User")
+    public persdan persdan;
+
+    @OneToOne(optional = true, mappedBy = "User")
+    public Brone Brone;
+
     @ElementCollection(targetClass = Roles.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)

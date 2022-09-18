@@ -20,6 +20,12 @@ public class persdan {
     @OneToOne(optional = true, cascade = CascadeType.ALL)
     public PaspDann PaspDann;
 
+    @OneToOne(optional = true, cascade = CascadeType.ALL)
+    public User User;
+
+    @OneToOne(optional = true, cascade = CascadeType.ALL)
+    public Oborud Oborud;
+
     public Long getId() {
         return id;
     }

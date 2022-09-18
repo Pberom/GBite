@@ -14,20 +14,11 @@ public class adress {
     @Size(message = "Строка не может быть меньше", min = 2, max = 1000)
     String title, fuadress;
 
-//    @OneToMany(mappedBy = "title", fetch = FetchType.EAGER)
-//    Collection<filials> filials;
-//
-//    public adress(Collection<com.example.GBite.models.filials> filials) {
-//        this.filials = filials;
-//    }
-//
-//    public Collection<com.example.GBite.models.filials> getFilials() {
-//        return filials;
-//    }
-//
-//    public void setFilials(Collection<com.example.GBite.models.filials> filials) {
-//        this.filials = filials;
-//    }
+    @OneToOne(optional = true, mappedBy = "adress")
+    public filials filials;
+
+    @OneToOne(optional = true, cascade = CascadeType.ALL)
+    public Oborud Oborud;
 
     public Long getId() {
         return id;

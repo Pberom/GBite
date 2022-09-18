@@ -16,6 +16,9 @@ public class Brone {
     @ManyToOne(fetch = FetchType.EAGER)
     periods periods;
 
+    @OneToOne(optional = true, cascade = CascadeType.ALL)
+    public User User;
+
     public Brone(com.example.GBite.models.periods periods) {
         this.periods = periods;
     }

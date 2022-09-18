@@ -18,6 +18,15 @@ public class Oborud {
     @NotNull(message = "Поле не может быть пустым!")
     Integer KolVo;
 
+    @OneToOne(optional = true, cascade = CascadeType.ALL)
+    public psforoborud psforoborud;
+
+    @OneToOne(optional = true, mappedBy = "Oborud")
+    public adress adress;
+
+    @OneToOne(optional = true, mappedBy = "Oborud")
+    public persdan persdan;
+
     public Long getId() {
         return id;
     }
